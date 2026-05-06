@@ -1,0 +1,4 @@
+flask
+thefuzz
+python-Levenshtein
+pdfplumber

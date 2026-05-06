@@ -1,0 +1,26 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Environnement
+.env
+
+# macOS
+.DS_Store
+
+# PDFs (copyright)
+PDF/
+
+# Fichiers de debug
+debug_*.html
+debug_*.png
+debug_*.json
+debug_*.txt
+
+# Scripts kt_debug et kt_downloader
+kt_debug*.py
+kt_downloader*.py
+
+# Logs
+log*.txt

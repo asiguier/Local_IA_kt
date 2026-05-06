@@ -1,0 +1,170 @@
+{
+  "meta": {
+    "source": "Kill Team - Règles condensées Juillet 2025",
+    "categorie": "Actions universelles"
+  },
+  "actions": [
+    {
+      "nom": "Repositionnement",
+      "alias": ["se déplacer", "bouger", "mouvement", "déplacement"],
+      "cout_pa": 1,
+      "type": "universelle",
+      "effets": [
+        "Déplacez l'agent actif, sans dépasser sa caractéristique de Mouvement, jusqu'à un endroit où il peut être placé.",
+        "Vous devez procéder à un ou plusieurs déplacements en segments de ligne droite, en arrondissant la longueur de chaque segment à l'entier supérieur le plus proche.",
+        "L'agent ne peut pas se déplacer à portée de contrôle d'un agent ennemi, sauf si au moins un agent ami est déjà à portée de contrôle de cet agent ennemi."
+      ],
+      "conditions": [
+        "Un agent ne peut pas faire cette action tant qu'il est à portée de contrôle d'un agent ennemi.",
+        "Un agent ne peut pas faire cette action pendant la même activation où il a fait l'action Battre en retraite ou Charger."
+      ],
+      "note": "Se déplacer par segments de droite rend les choses plus précises et plus claires."
+    },
+    {
+      "nom": "Sprinter",
+      "alias": ["sprint", "courir", "course"],
+      "cout_pa": 1,
+      "type": "universelle",
+      "effets": [
+        "Comme l'action Repositionnement, sauf que l'agent peut se déplacer au maximum de 3\" au lieu d'utiliser sa caractéristique de Mouvement.",
+        "L'agent ne peut pas escalader pendant ce mouvement, mais il peut se laisser tomber et sauter."
+      ],
+      "conditions": [
+        "Un agent ne peut pas faire cette action tant qu'il est à portée de contrôle d'un agent ennemi.",
+        "Un agent ne peut pas faire cette action pendant la même activation où il a fait l'action Charger."
+      ],
+      "note": "Sprinter permet de compléter une action Repositionnement pour se déplacer un peu plus loin."
+    },
+    {
+      "nom": "Battre en retraite",
+      "alias": ["retraite", "fuir", "se replier", "replier", "fuite"],
+      "cout_pa": 2,
+      "type": "universelle",
+      "effets": [
+        "Comme l'action Repositionnement, sauf que l'agent actif peut se déplacer à portée de contrôle d'un agent ennemi, mais ne peut pas y terminer son mouvement."
+      ],
+      "conditions": [
+        "Un agent ne peut pas faire cette action sauf si un agent ennemi est dans sa portée de contrôle.",
+        "Un agent ne peut pas faire cette action pendant la même activation où il a fait l'action Repositionnement ou Charger."
+      ],
+      "note": "Si un agent est activé à portée de contrôle d'un agent ennemi, Battre en retraite est une façon de se replier."
+    },
+    {
+      "nom": "Charger",
+      "alias": ["charge", "foncer", "engager"],
+      "cout_pa": 1,
+      "type": "universelle",
+      "effets": [
+        "Comme l'action Repositionnement, sauf que l'agent actif peut se déplacer de 2\" supplémentaires.",
+        "L'agent peut se déplacer, et doit finir son déplacement, à portée de contrôle d'un agent ennemi.",
+        "S'il se déplace à portée de contrôle d'un agent ennemi qui n'est pas dans la portée de contrôle d'aucun autre agent ennemi, il ne peut pas quitter la portée de contrôle de cet agent ennemi."
+      ],
+      "conditions": [
+        "Un agent ne peut pas faire cette action tant qu'il a un ordre de Dissimulation.",
+        "Un agent ne peut pas faire cette action s'il est déjà à portée de contrôle d'un agent ennemi.",
+        "Un agent ne peut pas faire cette action pendant la même activation où il a fait l'action Repositionnement, Sprinter ou Battre en retraite."
+      ],
+      "note": "L'action Charger permet à un agent d'engager un ennemi, mais pour ce faire, il faut un ordre d'Engagement."
+    },
+    {
+      "nom": "Ramasser un marqueur",
+      "alias": ["ramasser", "prendre marqueur", "récupérer marqueur", "pick up"],
+      "cout_pa": 1,
+      "type": "universelle",
+      "effets": [
+        "Retirez un marqueur que l'agent actif contrôle et qui peut être la cible de cette action.",
+        "L'agent porte, conteste et contrôle désormais le marqueur."
+      ],
+      "conditions": [
+        "Un agent ne peut pas faire cette action tant qu'il est à portée de contrôle d'un agent ennemi.",
+        "Un agent ne peut pas faire cette action s'il porte déjà un marqueur."
+      ],
+      "note": "S'il existe des marqueurs pouvant être la cible de cette action, cela sera précisé."
+    },
+    {
+      "nom": "Placer un marqueur",
+      "alias": ["poser marqueur", "déposer marqueur", "lâcher marqueur"],
+      "cout_pa": 1,
+      "type": "universelle",
+      "effets": [
+        "Placez à portée de contrôle de l'agent actif un marqueur qu'il portait.",
+        "Si un agent portant un marqueur est neutralisé, il doit faire cette action pour 0PA avant d'être retiré de la killzone."
+      ],
+      "conditions": [
+        "Un agent ne peut pas faire cette action pendant la même activation où il a fait l'action Ramasser un marqueur, sauf s'il est neutralisé."
+      ],
+      "note": "Si l'agent porte un ou des marqueurs, cela sera indiqué."
+    },
+    {
+      "nom": "Contre-attaquer",
+      "alias": ["contre-attaque", "contre attaque", "riposter hors activation"],
+      "cout_pa": 0,
+      "type": "universelle",
+      "effets": [
+        "Quand tous vos agents sont indisponibles mais pas ceux de l'adversaire, vous pouvez choisir un agent indisponible avec l'ordre d'Engagement pour effectuer gratuitement une action à 1PA (sauf Garde).",
+        "L'agent ne peut pas se déplacer de plus de 2\" en contre-attaquant.",
+        "Contre-attaquer est optionnel. C'est ensuite à l'adversaire d'activer un agent."
+      ],
+      "conditions": [
+        "L'agent doit avoir un ordre d'Engagement.",
+        "Tous vos agents doivent être indisponibles.",
+        "L'adversaire doit encore avoir des agents préparés.",
+        "Chaque agent ne peut contre-attaquer qu'une fois par tournant."
+      ],
+      "note": "Contre-attaquer n'est pas une activation, cela remplace une activation."
+    },
+    {
+      "nom": "Tirer",
+      "alias": ["tir", "shoot", "attaque à distance", "arme de tir"],
+      "cout_pa": 1,
+      "type": "universelle",
+      "sequence_ref": "sequence_tir",
+      "effets": [
+        "Tirez avec l'agent actif. Le joueur de l'agent actif est l'attaquant, le joueur de l'agent ennemi choisi est le défenseur.",
+        "Résolution : voir séquence de tir."
+      ],
+      "conditions": [
+        "Un agent ne peut pas faire cette action tant qu'il a un ordre de Dissimulation.",
+        "Un agent ne peut pas faire cette action tant qu'il est à portée de contrôle d'un agent ennemi."
+      ],
+      "note": "Une réussite normale inflige les Dégâts Normaux, une réussite critique inflige les Dégâts Critiques."
+    },
+    {
+      "nom": "Combattre",
+      "alias": ["combat", "mêlée", "corps à corps", "attaque mêlée", "frapper"],
+      "cout_pa": 1,
+      "type": "universelle",
+      "sequence_ref": "sequence_combat",
+      "effets": [
+        "Faites combattre l'agent actif. L'agent ennemi choisi pourra riposter.",
+        "Résolution : voir séquence de combat."
+      ],
+      "conditions": [
+        "Un agent ne peut pas faire cette action sauf si un agent ennemi est dans sa portée de contrôle."
+      ],
+      "note": "Contrairement au tir, le combat est à double sens : l'agent ennemi peut riposter."
+    },
+    {
+      "nom": "Garde",
+      "alias": ["en garde", "surveiller", "guetter", "attendre", "interrompre"],
+      "cout_pa": 1,
+      "type": "universelle",
+      "effets": [
+        "L'agent se met en garde jusqu'à ce qu'une condition de fin soit remplie.",
+        "Une fois en garde, vous pouvez interrompre l'activation d'un agent ennemi pour effectuer gratuitement l'action Tirer ou Combattre."
+      ],
+      "conditions": [
+        "Cette action compte comme une action Tirer.",
+        "Un agent ne peut pas faire cette action tant qu'il a un ordre de Dissimulation.",
+        "Un agent ne peut pas faire cette action tant qu'il est à portée de contrôle d'un agent ennemi."
+      ],
+      "fin_garde": [
+        "L'agent effectue n'importe quelle action, se déplace ou est placé.",
+        "Un agent ennemi termine une action dans sa portée de contrôle sans que vous n'interrompiez l'activation.",
+        "L'ordre de l'agent est changé.",
+        "C'est le début du tournant suivant."
+      ],
+      "note": "Utilisez le pion Garde pour indiquer les agents en garde."
+    }
+  ]
+}

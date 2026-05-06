@@ -1,0 +1,103 @@
+{
+  "meta": {
+    "source": "Kill Team - Règles condensées Juillet 2025",
+    "categorie": "Séquences de résolution"
+  },
+  "sequences": [
+    {
+      "id": "sequence_tir",
+      "nom": "Séquence de tir",
+      "intro": "Le joueur de l'agent actif est l'attaquant. Le joueur de l'agent ennemi choisi est le défenseur.",
+      "note": "Dans de rares cas, vous serez à la fois l'attaquant et le défenseur (ex: règle Déflagration sur un agent ami).",
+      "etapes": [
+        {
+          "num": 1,
+          "nom": "Choisir une arme",
+          "detail": "L'attaquant choisit une arme de tir de son agent et prend ses dés d'attaque (autant de D6 que la caractéristique d'Attaques de l'arme)."
+        },
+        {
+          "num": 2,
+          "nom": "Choisir une cible éligible",
+          "detail": "L'attaquant choisit un agent ennemi éligible n'ayant aucun agent ami à portée de contrôle.",
+          "sous_regles": [
+            "Ordre d'Engagement : la cible est éligible si elle est visible de l'agent actif.",
+            "Ordre de Dissimulation : la cible est éligible si elle est visible ET n'est pas à couvert.",
+            "Un agent est visible si l'agent actif peut le voir.",
+            "Un agent est à couvert s'il y a un terrain interposé dans sa portée de contrôle, et qu'il est à plus de 2\" de l'agent actif.",
+            "Un agent ne peut pas être à couvert ET masqué par le même élément de terrain : le défenseur choisit lequel s'applique."
+          ]
+        },
+        {
+          "num": 3,
+          "nom": "Jeter les dés d'attaque",
+          "detail": "L'attaquant jette ses dés. Chaque résultat supérieur ou égal à la caractéristique de Touche est une réussite (conservez le dé). Tout autre résultat est un échec (défaussez). Un 6 est toujours une réussite critique. Un 1 est toujours un échec.",
+          "sous_regles": [
+            "Si la cible est masquée : l'attaquant doit défausser une réussite de son choix.",
+            "Si la cible est masquée : toutes les réussites critiques comptent comme des réussites normales et ne peuvent pas être changées en critiques."
+          ]
+        },
+        {
+          "num": 4,
+          "nom": "Jeter les dés de défense",
+          "detail": "Le défenseur prend 3 dés de défense. Si la cible est à couvert, elle peut conserver une réussite normale sans jeter un dé (sauvegarde de couvert). Les autres dés sont jetés normalement."
+        },
+        {
+          "num": 5,
+          "nom": "Résoudre les dés de défense",
+          "detail": "Le défenseur alloue ses dés de défense réussis pour bloquer des dés d'attaque réussis.",
+          "sous_regles": [
+            "Une réussite normale peut bloquer une réussite normale.",
+            "Deux réussites normales peuvent bloquer une réussite critique.",
+            "Une réussite critique peut bloquer une réussite normale ou une réussite critique."
+          ]
+        },
+        {
+          "num": 6,
+          "nom": "Résoudre les dés d'attaque",
+          "detail": "Les dés réussis non bloqués infligent des dégâts à la cible.",
+          "sous_regles": [
+            "Une réussite normale inflige les Dégâts Normaux de l'arme.",
+            "Une réussite critique inflige les Dégâts Critiques de l'arme.",
+            "Tout agent neutralisé est retiré une fois que l'agent actif a terminé l'entièreté de son action."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sequence_combat",
+      "nom": "Séquence de combat",
+      "intro": "Le joueur de l'agent actif est l'attaquant. L'agent ennemi choisi pourra riposter. Contrairement au tir, le combat est à double sens.",
+      "note": "Si une règle dit qu'un agent ne peut pas riposter, il peut quand même être combattu mais ne prend pas de dés d'attaque.",
+      "etapes": [
+        {
+          "num": 1,
+          "nom": "Choisir un agent ennemi",
+          "detail": "L'attaquant choisit un agent ennemi à portée de contrôle de l'agent actif. Cet agent ennemi pourra riposter lors de cette action."
+        },
+        {
+          "num": 2,
+          "nom": "Choisir des armes",
+          "detail": "Chaque joueur choisit une arme de mêlée de son agent et prend ses dés d'attaque (autant de D6 que la caractéristique d'Attaques de l'arme).",
+          "sous_regles": [
+            "Assistance : tant qu'un agent ami est assisté par d'autres agents amis, améliorez de 1 la caractéristique de Touche de ses armes de mêlée pour chaque agent ami qui l'assiste. Pour assister, un agent doit être à portée de contrôle de l'agent ennemi sans être à portée de contrôle d'un autre agent ennemi."
+          ]
+        },
+        {
+          "num": 3,
+          "nom": "Jeter les dés d'attaque",
+          "detail": "Les deux joueurs jettent leurs dés simultanément. Chaque résultat supérieur ou égal à la caractéristique de Touche est une réussite (conservez). Tout autre résultat est un échec (défaussez). Un 6 est toujours une réussite critique. Un 1 est toujours un échec."
+        },
+        {
+          "num": 4,
+          "nom": "Résoudre les dés d'attaque",
+          "detail": "En commençant par l'attaquant, les joueurs résolvent tour à tour un de leurs dés réussis non bloqués, jusqu'à ce que l'un d'eux ait résolu tous ses dés ou qu'un agent soit neutralisé. Chaque dé doit être utilisé pour frapper ou bloquer.",
+          "sous_regles": [
+            "Frapper : infligez les dégâts à l'agent ennemi puis défaussez le dé. Une réussite normale inflige les Dégâts Normaux, une réussite critique inflige les Dégâts Critiques.",
+            "Bloquer : allouez un dé pour bloquer une réussite non résolue de l'adversaire. Une réussite normale bloque une réussite normale. Une réussite critique bloque une réussite normale ou critique.",
+            "Vous pouvez bloquer même si votre adversaire n'a plus de réussite non résolue."
+          ]
+        }
+      ]
+    }
+  ]
+}
